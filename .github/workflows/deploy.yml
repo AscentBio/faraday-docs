@@ -18,21 +18,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: withastro/action@v6
         with:
+          path: ./docs-astro
           node-version: 22
-          cache: npm
-      - run: rm -rf node_modules docs-astro/node_modules
-      - run: npm install
-      - name: Build
         env:
           SITE_URL: https://ascentbio.github.io
           BASE_PATH: /faraday-docs
-        run: npm run build
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: docs-astro/dist
 
   deploy:
     needs: build
@@ -42,4 +35,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
