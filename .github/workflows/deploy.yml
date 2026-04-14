@@ -23,8 +23,8 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm install --package-lock-only
-      - run: npm ci
+      - run: rm -rf node_modules docs-astro/node_modules
+      - run: npm install
       - name: Build
         env:
           SITE_URL: https://ascentbio.github.io
