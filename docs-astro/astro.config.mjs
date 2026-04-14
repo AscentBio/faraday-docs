@@ -47,10 +47,6 @@ export default defineConfig({
 					autogenerate: { directory: 'use-cases' },
 				},
 				{
-					label: 'Examples',
-					autogenerate: { directory: 'examples' },
-				},
-				{
 					label: 'Reference',
 					items: [
 						{ label: 'CLI reference', slug: 'reference/cli' },
